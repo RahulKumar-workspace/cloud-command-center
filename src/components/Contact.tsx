@@ -1,15 +1,48 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import SectionHeading from "./SectionHeading";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Send, Calendar } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Calendar, CheckCircle } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:rahulkumar.workspace@gmail.com?subject=Portfolio Contact from ${form.name}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${form.email}`;
-    window.open(mailtoLink);
+    setSending(true);
+
+    try {
+      await emailjs.send(
+        "service_zfv9aip",
+        "template_a4kys8j",
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        "Zmv0UDzM3k9wTP-rq"
+      );
+
+      toast({
+        title: "✨ Message Sent",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+        className: "bg-card border-primary/30 text-foreground shadow-[0_0_30px_-5px_hsl(var(--primary)/0.3)]",
+      });
+
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch {
+      toast({
+        title: "Failed to send",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -25,7 +58,7 @@ const Contact = () => {
             </p>
 
             <div className="space-y-4">
-              <a href="mailto:rahulkumar.workspace@gmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://mail.google.com/mail/?view=cm&to=rahulkumar.workspace@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Mail size={18} className="text-primary" /> rahulkumar.workspace@gmail.com
               </a>
               <a href="https://github.com/RahulKumar-workspace" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -61,6 +94,14 @@ const Contact = () => {
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
             />
+            <input
+              type="text"
+              placeholder="Subject"
+              required
+              value={form.subject}
+              onChange={(e) => setForm({ ...form, subject: e.target.value })}
+              className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+            />
             <textarea
               placeholder="Your Message"
               required
@@ -69,8 +110,8 @@ const Contact = () => {
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
             />
-            <Button variant="gold" type="submit" className="w-full">
-              <Send size={16} /> Send Message
+            <Button variant="gold" type="submit" className="w-full" disabled={sending}>
+              {sending ? "Sending..." : <><Send size={16} /> Send Message</>}
             </Button>
           </form>
         </div>

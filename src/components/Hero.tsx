@@ -80,7 +80,7 @@ const Hero = () => {
 
           {/* Right – Image */}
           <div className="order-1 md:order-2 flex justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border border-border bg-card gold-glow">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border border-border bg-card gold-glow">
               <img
                 src={profileImg}
                 alt="Rahul Kumar – Aspiring Cloud Engineer"

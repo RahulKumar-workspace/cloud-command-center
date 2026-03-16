@@ -32,7 +32,7 @@ const Hero = () => {
             </div>
 
             <p className="text-xl md:text-2xl font-heading font-semibold text-primary animate-fade-up" style={{ animationDelay: "0.3s" }}>
-              Aspiring Cloud Engineer
+              Aspiring Cloud & Android Developer
             </p>
 
             <p className="text-muted-foreground max-w-md leading-relaxed animate-fade-up" style={{ animationDelay: "0.4s" }}>

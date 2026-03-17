@@ -15,7 +15,8 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
 
       <div className="section-container relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* <div className="grid md:grid-cols-2 gap-12 items-center"> */}
+        <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left – Text */}
           <div className="order-2 md:order-1 space-y-6">
             <span className="inline-block px-4 py-1.5 rounded-full border border-primary/40 text-primary text-xs font-medium tracking-wide animate-fade-up">
@@ -35,12 +36,21 @@ const Hero = () => {
               Aspiring Cloud & Android Developer
             </p>
 
-            <p className="text-muted-foreground max-w-md leading-relaxed animate-fade-up" style={{ animationDelay: "0.4s" }}>
+            
+            {/* <p className="text-muted-foreground max-w-md leading-relaxed animate-fade-up" style={{ animationDelay: "0.4s" }}>
               CSE undergraduate building real-world projects in{" "}
               <span className="text-primary">Cloud &amp; DevOps</span>. Strong
               problem-solver with a passion for writing and communicating
               technical ideas clearly.
+            </p>  */}
+
+            <p className="text-muted-foreground max-w-md leading-relaxed animate-fade-up" style={{ animationDelay: "0.4s" }}>
+              Prefinal-year Computer Science student exploring{" "}
+              <span className="text-primary">Cloud &amp; DevOps</span>. I enjoy building
+              projects to understand how real-world systems are designed and scaled.
             </p>
+
+
 
             {/* CTA */}
             <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.5s" }}>
@@ -78,18 +88,24 @@ const Hero = () => {
             </div>
           </div>
 
+
+
           {/* Right – Image */}
           <div className="order-1 md:order-2 flex justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border border-border bg-card gold-glow">
+            {/* <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border border-border bg-card gold-glow"> */}
+            <div className="relative w-full max-w-[320px] aspect-[3/5] md:max-w-[420px] rounded-3xl overflow-hidden border border-primary/20 bg-card shadow-2xl transition-transform hover:scale-[1.02] duration-500"> {/*for the black one*/}
               <img
                 src={profileImg}
                 alt="Rahul Kumar – Aspiring Cloud Engineer"
-                className="w-full h-full object-cover"
+                // className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top scale-1" // for the black one
               />
               {/* Overlay glow */}
               <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/20" />
             </div>
-          </div>
+          </div> 
+
+          
         </div>
       </div>
     </section>

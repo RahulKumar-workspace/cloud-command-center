@@ -10,7 +10,7 @@ const items = [
       "Managed a team of 10+ members while coordinating recruitment, onboarding, and international partnership operations.",
       "Worked with 30+ global entities and stakeholders.",
     ],
-    downloadLabel: "Experience Letter",
+    downloadLabel: "Experience Letter - Rahul Kumar",
     downloadHref: "/aiesec-experience.pdf",
   },
   {
@@ -20,7 +20,7 @@ const items = [
     details: [
       "Supported teaching initiatives for children and helped with WordPress-based digital updates for the foundation.",
     ],
-    downloadLabel: "Certificate",
+    downloadLabel: "Certificate - Rahul Kumar",
     downloadHref: "/sarayu-certificate.jpg",
   },
 ];

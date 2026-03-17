@@ -12,6 +12,7 @@ const items = [
     ],
     downloadLabel: "Experience Letter - Rahul Kumar",
     downloadHref: "/aiesec-experience.pdf",
+    downloadFilename: "Experience Letter - Rahul Kumar.pdf",
   },
   {
     icon: <Heart size={22} />,

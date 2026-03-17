@@ -17,7 +17,7 @@ const groups: SkillGroup[] = [
   {
     icon: <Cloud size={20} />,
     title: "Cloud & DevOps",
-    skills: ["AWS Cloud Services", "Docker"],
+    skills: ["AWS Cloud Services", "Microsort Azure", "Docker"],
   },
   {
     icon: <Wrench size={20} />,
@@ -27,7 +27,7 @@ const groups: SkillGroup[] = [
   {
     icon: <Layers size={20} />,
     title: "Frameworks",
-    skills: ["Android SDK"],
+    skills: ["Android SDK", "Kubernetes"],
   },
 ];
 

@@ -64,7 +64,7 @@ const Contact = () => {
               <a href="https://github.com/RahulKumar-workspace" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Github size={18} className="text-primary" /> github.com/RahulKumar-workspace
               </a>
-              <a href="https://linkedin.com/in/rahul-kumar2025" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/in/108rahul-kumar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin size={18} className="text-primary" /> linkedin.com/in/rahul-kumar2025
               </a>
             </div>

@@ -66,7 +66,7 @@ const Hero = () => {
                 </a>
               </Button>
               <Button variant="social" size="icon" asChild>
-                <a href="https://linkedin.com/in/rahul-kumar2025" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/108rahul-kumar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin size={18} />
                 </a>
               </Button>

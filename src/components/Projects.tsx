@@ -26,36 +26,29 @@ const projects: Project[] = [
     github: "https://github.com/RahulKumar-workspace/Educa",
     badge: "Top 50 / 1300 teams – Coding Ninjas Hackathon",
   },
-  {
-    title: "CloudTasker – Serverless Task API",
-    description:
-      "Serverless backend system designed to manage tasks using scalable cloud architecture with event-driven execution. Demonstrates cloud architecture and backend design skills.",
-    tech: ["AWS Lambda", "API Gateway", "DynamoDB", "IAM"],
-    github: "#",
-  },
 ];
 
 const Projects = () => (
   <section id="projects" className="section-spacing">
     <div className="section-container">
       <SectionHeading label="Projects" sub="Featured Work" />
-      <div className="grid md:grid-cols-3 gap-6 mt-12">
+      <div className="grid md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
         {projects.map((p) => (
           <div
             key={p.title}
-            className="bg-card border border-border rounded-xl p-6 flex flex-col card-hover"
+            className="bg-card border border-border rounded-xl p-8 flex flex-col card-hover"
           >
             {p.badge && (
-              <div className="flex items-center gap-2 mb-3 text-xs text-primary font-medium">
-                <Award size={14} />
+              <div className="flex items-center gap-2 mb-4 text-sm text-primary font-medium">
+                <Award size={16} />
                 {p.badge}
               </div>
             )}
-            <h3 className="font-heading font-semibold text-lg mb-2">{p.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+            <h3 className="font-heading font-semibold text-xl mb-3">{p.title}</h3>
+            <p className="text-base text-muted-foreground leading-relaxed flex-1 mb-5">
               {p.description}
             </p>
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-5">
               {p.tech.map((t) => (
                 <span key={t} className="tech-tag">{t}</span>
               ))}

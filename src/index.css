@@ -57,6 +57,10 @@
     @apply font-heading;
   }
 
+  p, li, span, a, label, input, textarea {
+    @apply text-base md:text-lg;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -84,7 +88,7 @@
   }
 
   .section-spacing {
-    @apply py-24 md:py-32;
+    @apply py-16 md:py-20;
   }
 
   .tech-tag {

@@ -92,18 +92,19 @@ const Hero = () => {
 
           {/* Right – Image */}
           <div className="order-1 md:order-2 flex justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            {/* <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border border-border bg-card gold-glow"> */}
-            <div className="relative w-full max-w-[320px] aspect-[3/5] md:max-w-[420px] rounded-3xl overflow-hidden border border-primary/20 bg-card shadow-2xl transition-transform hover:scale-[1.02] duration-500"> {/*for the black one*/}
+            {/* Reduced max-width from 320px/420px to 240px/320px */}
+            <div className="relative w-full max-w-[260px] md:max-w-[340px] aspect-[3/5] rounded-3xl overflow-hidden border border-primary/20 bg-card shadow-2xl transition-transform hover:scale-[1.05] duration-500">
               <img
                 src={profileImg}
                 alt="Rahul Kumar – Aspiring Cloud Engineer"
-                // className="w-full h-full object-cover"
-                className="w-full h-full object-cover object-top scale-1" // for the black one
+                // object-top ensures your head is visible, h-full/w-full keeps it from distorting
+                className="w-full h-full object-cover object-top"
               />
               {/* Overlay glow */}
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/20" />
+              <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-primary/20 pointer-events-none" />
             </div>
-          </div> 
+          </div>
+
 
           
         </div>

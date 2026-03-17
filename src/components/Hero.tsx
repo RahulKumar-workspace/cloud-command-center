@@ -71,7 +71,7 @@ const Hero = () => {
                 </a>
               </Button>
               <Button variant="social" size="icon" asChild>
-                <a href="mailto:rahulkumar.workspace@gmail.com" aria-label="Email">
+                <a href="https://mail.google.com/mail/?view=cm&to=rahulkumar.workspace@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
                   <Mail size={18} />
                 </a>
               </Button>

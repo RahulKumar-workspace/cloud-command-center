@@ -23,6 +23,7 @@ const items = [
     ],
     downloadLabel: "Certificate - Rahul Kumar",
     downloadHref: "/sarayu-certificate.jpg",
+    downloadFilename: "Sarayu Certificate - Rahul Kumar.jpg",
   },
 ];
 

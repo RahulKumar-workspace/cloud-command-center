@@ -57,6 +57,10 @@
     @apply font-heading;
   }
 
+  p, li, span, a, label, input, textarea {
+    @apply text-base md:text-lg;
+  }
+
   html {
     scroll-behavior: smooth;
   }

@@ -12,6 +12,7 @@ const items = [
     ],
     downloadLabel: "Experience Letter - Rahul Kumar",
     downloadHref: "/aiesec-experience.pdf",
+    downloadFilename: "Experience Letter - Rahul Kumar.pdf",
   },
   {
     icon: <Heart size={22} />,
@@ -22,6 +23,7 @@ const items = [
     ],
     downloadLabel: "Certificate - Rahul Kumar",
     downloadHref: "/sarayu-certificate.jpg",
+    downloadFilename: "Sarayu Certificate - Rahul Kumar.jpg",
   },
 ];
 
@@ -49,7 +51,7 @@ const Extracurricular = () => (
             </ul>
             <a
               href={item.downloadHref}
-              download
+              download={item.downloadFilename}
               className="inline-flex items-center gap-2 text-xs font-medium text-primary hover:text-primary/80 transition-colors border border-primary/30 rounded-lg px-4 py-2 hover:bg-primary/5"
             >
               <Download size={14} />

@@ -33,9 +33,12 @@ const Navbar = () => {
       }`}
     >
       <div className="section-container flex items-center justify-between h-16">
-        <span className="font-heading text-lg font-bold text-foreground">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="font-heading text-lg font-bold text-foreground hover:text-primary transition-colors"
+        >
           Rahul <span className="text-primary">Kumar</span>
-        </span>
+        </button>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">

@@ -49,7 +49,7 @@ const Extracurricular = () => (
             </ul>
             <a
               href={item.downloadHref}
-              download
+              download={item.downloadFilename}
               className="inline-flex items-center gap-2 text-xs font-medium text-primary hover:text-primary/80 transition-colors border border-primary/30 rounded-lg px-4 py-2 hover:bg-primary/5"
             >
               <Download size={14} />

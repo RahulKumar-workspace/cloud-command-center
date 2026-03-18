@@ -4,6 +4,18 @@ import { useToast } from "@/hooks/use-toast";
 import profileImg from "@/assets/profile-placeholder.png";
 
 const Hero = () => {
+  const { toast } = useToast();
+
+  const handlePhone = () => {
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = "tel:+916378965600";
+    } else {
+      navigator.clipboard.writeText("+91 6378965600");
+      toast({ title: "📋 Copied", description: "+91 6378965600" });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center pt-16 relative overflow-hidden">
       {/* Subtle grid bg */}

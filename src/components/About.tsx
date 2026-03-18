@@ -67,7 +67,7 @@ const About = () => (
   </p>
   <p>
     Beyond tech, I’ve gained valuable experience through{" "}
-    <span className="text-primary font-medium">AIESEC</span>, where I worked with teams,
+    <button onClick={() => document.querySelector('#extracurricular')?.scrollIntoView({ behavior: 'smooth' })} className="text-primary font-medium hover:underline cursor-pointer">AIESEC</button>, where I worked with teams,
     handled responsibilities, and developed strong communication and leadership skills
     that support my overall growth.
   </p>

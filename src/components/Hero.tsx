@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Download, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, Download, ArrowDown } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import profileImg from "@/assets/profile-placeholder.png";
 
 const Hero = () => {

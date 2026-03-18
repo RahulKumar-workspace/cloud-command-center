@@ -2,7 +2,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import SectionHeading from "./SectionHeading";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Send, Calendar, CheckCircle } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Calendar, CheckCircle, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -58,6 +58,24 @@ const Contact = () => {
             </p>
 
             <div className="space-y-4">
+              <button
+                onClick={() => {
+                  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                  if (isMobile) {
+                    window.location.href = "tel:+916378965600";
+                  } else {
+                    navigator.clipboard.writeText("+91 6378965600");
+                    toast({
+                      title: "📋 Copied",
+                      description: "Phone number copied to clipboard.",
+                      className: "bg-card border-primary/30 text-foreground shadow-[0_0_30px_-5px_hsl(var(--primary)/0.3)]",
+                    });
+                  }
+                }}
+                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none p-0"
+              >
+                <Phone size={18} className="text-primary" /> +91 6378965600
+              </button>
               <a href="https://mail.google.com/mail/?view=cm&to=rahulkumar.workspace@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Mail size={18} className="text-primary" /> rahulkumar.workspace@gmail.com
               </a>

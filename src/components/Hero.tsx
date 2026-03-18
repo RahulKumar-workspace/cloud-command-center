@@ -88,6 +88,9 @@ const Hero = () => {
                   <Github size={18} />
                 </a>
               </Button>
+              <Button variant="social" size="icon" onClick={handlePhone} aria-label="Phone">
+                <Phone size={18} />
+              </Button>
               <Button variant="social" size="icon" asChild>
                 <a href="https://www.linkedin.com/in/108rahul-kumar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin size={18} />

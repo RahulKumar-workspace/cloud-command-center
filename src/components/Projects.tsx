@@ -62,11 +62,20 @@ const Projects = () => (
                 <span key={t} className="tech-tag">{t}</span>
               ))}
             </div>
-            <Button variant="gold-outline" size="sm" asChild className="self-start">
-              <a href={p.github} target="_blank" rel="noopener noreferrer">
-                <Github size={14} /> GitHub
-              </a>
-            </Button>
+            <div className="flex gap-3">
+              <Button variant="gold-outline" size="sm" asChild className="self-start">
+                <a href={p.github} target="_blank" rel="noopener noreferrer">
+                  <Github size={14} /> GitHub
+                </a>
+              </Button>
+              {p.live && (
+                <Button variant="gold-outline" size="sm" asChild className="self-start">
+                  <a href={p.live} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink size={14} /> Live
+                  </a>
+                </Button>
+              )}
+            </div>
           </div>
         ))}
       </div>

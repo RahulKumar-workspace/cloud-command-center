@@ -2,7 +2,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import SectionHeading from "./SectionHeading";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Send, Calendar, CheckCircle } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Calendar, CheckCircle, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {

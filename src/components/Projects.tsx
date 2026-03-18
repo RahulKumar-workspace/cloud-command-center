@@ -41,7 +41,7 @@ const Projects = () => (
   <section id="projects" className="section-spacing">
     <div className="section-container">
       <SectionHeading label="Projects" sub="Featured Work" />
-      <div className="grid md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
         {projects.map((p) => (
           <div
             key={p.title}

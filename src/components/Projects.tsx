@@ -1,6 +1,6 @@
 import SectionHeading from "./SectionHeading";
 import { Button } from "@/components/ui/button";
-import { Github, Award } from "lucide-react";
+import { Github, Award, ExternalLink } from "lucide-react";
 
 interface Project {
   title: string;
@@ -8,6 +8,7 @@ interface Project {
   tech: string[];
   github: string;
   badge?: string;
+  live?: string;
 }
 
 const projects: Project[] = [
@@ -26,13 +27,21 @@ const projects: Project[] = [
     github: "https://github.com/RahulKumar-workspace/Educa",
     badge: "Top 50 / 1300 teams – Coding Ninjas Hackathon",
   },
+  {
+    title: "CPU Scheduling Simulator",
+    description:
+      "A browser-based academic tool built as a single HTML file, designed to help OS students visualise how different CPU scheduling algorithms work in real time. Implements five algorithms — FCFS, SJF, SRTF, Priority, and Round Robin — with real-time DOM manipulation, input validation, colour-coded Gantt charts, and a Canvas-drawn bar chart comparing Waiting Time and Turnaround Time. Zero external libraries — just HTML5, CSS3, and vanilla JavaScript.",
+    tech: ["HTML5", "CSS3", "JavaScript", "Canvas API"],
+    github: "https://github.com/RahulKumar-workspace/CPU-Scheduling-Simulator---PEP",
+    live: "file:///Users/krahul/Downloads/index_1.html",
+  },
 ];
 
 const Projects = () => (
   <section id="projects" className="section-spacing">
     <div className="section-container">
       <SectionHeading label="Projects" sub="Featured Work" />
-      <div className="grid md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
         {projects.map((p) => (
           <div
             key={p.title}
@@ -53,11 +62,20 @@ const Projects = () => (
                 <span key={t} className="tech-tag">{t}</span>
               ))}
             </div>
-            <Button variant="gold-outline" size="sm" asChild className="self-start">
-              <a href={p.github} target="_blank" rel="noopener noreferrer">
-                <Github size={14} /> GitHub
-              </a>
-            </Button>
+            <div className="flex gap-3">
+              <Button variant="gold-outline" size="sm" asChild className="self-start">
+                <a href={p.github} target="_blank" rel="noopener noreferrer">
+                  <Github size={14} /> GitHub
+                </a>
+              </Button>
+              {p.live && (
+                <Button variant="gold-outline" size="sm" asChild className="self-start">
+                  <a href={p.live} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink size={14} /> Live
+                  </a>
+                </Button>
+              )}
+            </div>
           </div>
         ))}
       </div>

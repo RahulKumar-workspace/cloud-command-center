@@ -1,6 +1,6 @@
 import SectionHeading from "./SectionHeading";
 import { Button } from "@/components/ui/button";
-import { Github, Award } from "lucide-react";
+import { Github, Award, ExternalLink } from "lucide-react";
 
 interface Project {
   title: string;
@@ -8,6 +8,7 @@ interface Project {
   tech: string[];
   github: string;
   badge?: string;
+  live?: string;
 }
 
 const projects: Project[] = [
@@ -25,6 +26,14 @@ const projects: Project[] = [
     tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     github: "https://github.com/RahulKumar-workspace/Educa",
     badge: "Top 50 / 1300 teams – Coding Ninjas Hackathon",
+  },
+  {
+    title: "CPU Scheduling Simulator",
+    description:
+      "A browser-based academic tool built as a single HTML file, designed to help OS students visualise how different CPU scheduling algorithms work in real time. Implements five algorithms — FCFS, SJF, SRTF, Priority, and Round Robin — with real-time DOM manipulation, input validation, colour-coded Gantt charts, and a Canvas-drawn bar chart comparing Waiting Time and Turnaround Time. Zero external libraries — just HTML5, CSS3, and vanilla JavaScript.",
+    tech: ["HTML5", "CSS3", "JavaScript", "Canvas API"],
+    github: "https://github.com/RahulKumar-workspace/CPU-Scheduling-Simulator---PEP",
+    live: "file:///Users/krahul/Downloads/index_1.html",
   },
 ];
 

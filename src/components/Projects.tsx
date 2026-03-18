@@ -33,6 +33,7 @@ const projects: Project[] = [
       "A browser-based academic tool designed to help students visualise how different CPU scheduling algorithms work in real time. Implements five algorithms - FCFS, SJF, SRTF, Priority, and Round Robin",
     tech: ["HTML5", "CSS3", "JavaScript", "Canvas API"],
     github: "https://github.com/RahulKumar-workspace/CPU-Scheduling-Simulator---PEP",
+    live: "https://rahulkumar-workspace.github.io/CPU-Scheduling-Simulator---PEP/",
   },
 ];
 

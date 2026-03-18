@@ -12,7 +12,8 @@ const Hero = () => {
       window.location.href = "tel:+916378965600";
     } else {
       navigator.clipboard.writeText("+91 6378965600");
-      toast({ title: "📋 Copied", description: "Phone number copied to clipboard.", className: "bg-card border-primary/30 text-foreground shadow-[0_0_30px_-5px_hsl(var(--primary)/0.3)]" });
+      const { dismiss } = toast({ title: "📋 Copied", description: "Phone number copied to clipboard.", className: "bg-card border-primary/30 text-foreground shadow-[0_0_30px_-5px_hsl(var(--primary)/0.3)]" });
+      setTimeout(dismiss, 3000);
     }
   };
 

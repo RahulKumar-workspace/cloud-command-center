@@ -1,5 +1,5 @@
 import SectionHeading from "./SectionHeading";
-import { Code, Cloud, Wrench, Layers } from "lucide-react";
+import { Code, Cloud, Wrench, Users } from "lucide-react";
 import type { ReactNode } from "react";
 
 interface SkillGroup {
@@ -17,7 +17,7 @@ const groups: SkillGroup[] = [
   {
     icon: <Cloud size={20} />,
     title: "Cloud & DevOps",
-    skills: ["AWS Cloud Services", "Microsort Azure", "Docker"],
+    skills: ["AWS Cloud Services", "Microsoft Azure", "Docker"],
   },
   {
     icon: <Wrench size={20} />,
@@ -25,9 +25,9 @@ const groups: SkillGroup[] = [
     skills: ["Git", "GitHub", "Linux Terminal", "macOS Terminal", "Android Studio", "MySQL", "AWS Console"],
   },
   {
-    icon: <Layers size={20} />,
-    title: "Frameworks",
-    skills: ["Android SDK", "Kubernetes"],
+    icon: <Users size={20} />,
+    title: "Soft Skills",
+    skills: ["Leadership", "Team Management", "Coordination", "Adaptability", "Communication"],
   },
 ];
 

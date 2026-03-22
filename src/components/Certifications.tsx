@@ -1,12 +1,10 @@
 import SectionHeading from "./SectionHeading";
-import { ExternalLink, Download } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 import certPromptEng from "@/assets/cert-prompt-engineering.png";
 import certNetworking from "@/assets/cert-networking.png";
 import certHardware from "@/assets/cert-hardware.png";
 import certTechSupport from "@/assets/cert-technical-support.png";
-import loeAiesec from "@/assets/loe-aiesec.png";
-import loeSarayu from "@/assets/loe-sarayu.png";
 
 const certs = [
   {
@@ -35,29 +33,11 @@ const certs = [
   },
 ];
 
-const loes = [
-  {
-    name: "AIESEC Letter of Experience",
-    org: "AIESEC in Jalandhar",
-    image: loeAiesec,
-    downloadHref: "/aiesec-experience.pdf",
-    downloadFilename: "Experience Letter - Rahul Kumar.pdf",
-  },
-  {
-    name: "Sarayu Foundation Certificate",
-    org: "Sarayu Foundation Public Charitable Trust",
-    image: loeSarayu,
-    downloadHref: "/sarayu-certificate.jpg",
-    downloadFilename: "Sarayu Certificate - Rahul Kumar.jpg",
-  },
-];
-
 const Certifications = () => (
   <section id="certifications" className="section-spacing bg-surface/30">
     <div className="section-container">
       <SectionHeading label="Certificates" />
 
-      {/* Course Certificates */}
       <div className="grid sm:grid-cols-2 gap-6 mt-14 max-w-4xl mx-auto">
         {certs.map((c) => (
           <a
@@ -84,41 +64,6 @@ const Certifications = () => (
               <h3 className="text-sm font-semibold leading-snug">{c.name}</h3>
             </div>
           </a>
-        ))}
-      </div>
-
-      {/* Letters of Experience */}
-      <h3 className="text-xl font-heading font-semibold text-center mt-16 mb-8">
-        Letters of Experience
-      </h3>
-      <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {loes.map((l) => (
-          <div
-            key={l.name}
-            className="bg-card border border-border rounded-xl overflow-hidden card-hover group"
-          >
-            <div className="relative overflow-hidden">
-              <img
-                src={l.image}
-                alt={l.name}
-                className="w-full h-48 object-cover object-top transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-5 flex items-center justify-between">
-              <div>
-                <p className="text-xs text-primary font-medium mb-1">{l.org}</p>
-                <h3 className="text-sm font-semibold leading-snug">{l.name}</h3>
-              </div>
-              <a
-                href={l.downloadHref}
-                download={l.downloadFilename}
-                className="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors border border-primary/30 rounded-lg px-3 py-2 hover:bg-primary/5"
-              >
-                <Download size={14} />
-                View
-              </a>
-            </div>
-          </div>
         ))}
       </div>
     </div>

@@ -1,75 +1,103 @@
-import { useState } from "react";
-import { X, ZoomIn, ZoomOut, Download, ExternalLink } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Download, ExternalLink, X, ZoomIn, ZoomOut } from "lucide-react";
 
 interface DocumentViewerProps {
-  isOpen: boolean;
+  open: boolean;
   onClose: () => void;
   src: string;
   title: string;
-  downloadFilename?: string;
+  downloadName: string;
 }
 
-const DocumentViewer = ({ isOpen, onClose, src, title, downloadFilename }: DocumentViewerProps) => {
+const DocumentViewer = ({ open, onClose, src, title, downloadName }: DocumentViewerProps) => {
   const [zoom, setZoom] = useState(100);
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (open) setZoom(100);
+  }, [open, src]);
 
-  const isImage = /\.(jpg|jpeg|png|gif|webp)$/i.test(src);
+  const isImage = useMemo(() => /\.(jpg|jpeg|png|webp|gif|svg)$/i.test(src), [src]);
+
+  if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      {/* Backdrop */}
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={onClose} />
+      <button
+        type="button"
+        aria-label="Close document viewer"
+        onClick={onClose}
+        className="absolute inset-0 bg-background/85 backdrop-blur-sm"
+      />
 
-      {/* Modal */}
-      <div className="relative z-10 w-[90vw] h-[90vh] max-w-5xl bg-card border border-border rounded-xl shadow-2xl flex flex-col overflow-hidden">
-        {/* Toolbar */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-card">
-          <h3 className="font-heading font-semibold text-sm text-foreground truncate">{title}</h3>
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setZoom((z) => Math.max(50, z - 25))}>
+      <div className="relative z-10 w-[94vw] max-w-6xl h-[90vh] bg-card border border-border rounded-xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="flex items-center justify-between border-b border-border px-3 py-2">
+          <p className="text-sm font-medium text-foreground truncate pr-4">{title}</p>
+
+          <div className="flex items-center gap-1">
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              onClick={() => setZoom((prev) => Math.max(50, prev - 10))}
+              aria-label="Zoom out"
+            >
               <ZoomOut size={16} />
             </Button>
-            <span className="text-xs text-muted-foreground w-12 text-center">{zoom}%</span>
-            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setZoom((z) => Math.min(200, z + 25))}>
+            <span className="text-xs text-muted-foreground min-w-10 text-center">{zoom}%</span>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              onClick={() => setZoom((prev) => Math.min(200, prev + 10))}
+              aria-label="Zoom in"
+            >
               <ZoomIn size={16} />
             </Button>
-            <div className="w-px h-5 bg-border mx-1" />
-            <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-              <a href={src} download={downloadFilename || true}>
+
+            <Button type="button" variant="ghost" size="icon" className="h-8 w-8" asChild>
+              <a href={src} download={downloadName} aria-label="Download document">
                 <Download size={16} />
               </a>
             </Button>
-            <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-              <a href={src} target="_blank" rel="noopener noreferrer">
+
+            <Button type="button" variant="ghost" size="icon" className="h-8 w-8" asChild>
+              <a href={src} target="_blank" rel="noopener noreferrer" aria-label="Open in new tab">
                 <ExternalLink size={16} />
               </a>
             </Button>
-            <div className="w-px h-5 bg-border mx-1" />
-            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={onClose}>
+
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              onClick={onClose}
+              aria-label="Close viewer"
+            >
               <X size={16} />
             </Button>
           </div>
         </div>
 
-        {/* Content */}
-        <div className="flex-1 overflow-auto bg-muted/30 flex items-start justify-center p-6">
-          {isImage ? (
-            <img
-              src={src}
-              alt={title}
-              style={{ width: `${zoom}%`, maxWidth: "none" }}
-              className="rounded shadow-lg transition-all duration-200"
-            />
-          ) : (
-            <iframe
-              src={src}
-              title={title}
-              style={{ width: `${zoom}%`, height: `${zoom}%`, minHeight: "100%" }}
-              className="bg-white rounded shadow-lg border-0"
-            />
-          )}
+        <div className="flex-1 overflow-auto bg-muted/20 p-4">
+          <div
+            className="mx-auto bg-background rounded-lg overflow-hidden shadow-sm border border-border"
+            style={{ width: `${zoom}%`, maxWidth: "1000px" }}
+          >
+            {isImage ? (
+              <img src={src} alt={title} className="w-full h-auto block" />
+            ) : (
+              <iframe
+                src={src}
+                title={title}
+                className="w-full border-0"
+                style={{ minHeight: "70vh" }}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>

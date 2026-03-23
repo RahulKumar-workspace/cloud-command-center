@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SectionHeading from "./SectionHeading";
-import { Users, Heart, Download, Eye } from "lucide-react";
+import { Users, Heart, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DocumentViewer from "./DocumentViewer";
 
@@ -19,8 +19,8 @@ const items = [
     ],
     loeImage: loeAiesec,
     loeTitle: "AIESEC Letter of Experience",
-    downloadHref: "/aiesec-experience.pdf",
-    downloadFilename: "Experience Letter - Rahul Kumar.pdf",
+    fileHref: "/aiesec-experience.pdf",
+    fileName: "Experience Letter - Rahul Kumar.pdf",
   },
   {
     icon: <Heart size={22} />,
@@ -32,13 +32,17 @@ const items = [
     ],
     loeImage: loeSarayu,
     loeTitle: "Sarayu Foundation Certificate",
-    downloadHref: "/sarayu-certificate.jpg",
-    downloadFilename: "Sarayu Certificate - Rahul Kumar.jpg",
+    fileHref: "/sarayu-certificate.jpg",
+    fileName: "Sarayu Certificate - Rahul Kumar.jpg",
   },
 ];
 
 const Extracurricular = () => {
-  const [viewerItem, setViewerItem] = useState<typeof items[number] | null>(null);
+  const [activeItem, setActiveItem] = useState<(typeof items)[number] | null>(null);
+
+  const openViewer = (item: (typeof items)[number]) => {
+    setActiveItem(item);
+  };
 
   return (
     <section id="extracurricular" className="section-spacing">
@@ -48,7 +52,16 @@ const Extracurricular = () => {
           {items.map((item) => (
             <div
               key={item.org}
-              className="bg-card border border-border rounded-xl overflow-hidden flex flex-col card-hover"
+              className="bg-card border border-border rounded-xl overflow-hidden flex flex-col card-hover cursor-pointer"
+              role="button"
+              tabIndex={0}
+              onClick={() => openViewer(item)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  openViewer(item);
+                }
+              }}
             >
               {/* Document Preview Image */}
               <div className="relative overflow-hidden">
@@ -91,9 +104,13 @@ const Extracurricular = () => {
                   variant="gold-outline"
                   size="sm"
                   className="self-start"
-                  onClick={() => setViewerItem(item)}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    openViewer(item);
+                  }}
                 >
-                  <Eye size={14} /> {item.loeTitle}
+                  <Eye size={14} /> View / Download
                 </Button>
               </div>
             </div>
@@ -101,15 +118,13 @@ const Extracurricular = () => {
         </div>
       </div>
 
-      {viewerItem && (
-        <DocumentViewer
-          isOpen={true}
-          onClose={() => setViewerItem(null)}
-          src={viewerItem.downloadHref}
-          title={viewerItem.loeTitle}
-          downloadFilename={viewerItem.downloadFilename}
-        />
-      )}
+      <DocumentViewer
+        open={Boolean(activeItem)}
+        onClose={() => setActiveItem(null)}
+        src={activeItem?.fileHref || ""}
+        title={activeItem?.loeTitle || "Document"}
+        downloadName={activeItem?.fileName || "document"}
+      />
     </section>
   );
 };

@@ -55,77 +55,87 @@ const Projects = () => (
     <div className="section-container">
       <SectionHeading label="Projects" sub="Featured Work" />
       <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
-        {projects.map((p) => (
-          <div
-            key={p.title}
-            className="bg-card border border-border rounded-xl overflow-hidden flex flex-col card-hover relative"
-          >
-            {/* Project Image */}
-            <div className="relative overflow-hidden">
-              <img
-                src={p.image}
-                alt={p.title}
-                className="w-full h-44 object-cover object-top transition-transform duration-300 hover:scale-105"
-              />
-            </div>
+        {projects.map((p) => {
+          const imageLink = p.title === "CPU Scheduling Simulator" && p.live ? p.live : p.github;
 
-            <div className="p-8 pt-5 flex flex-col flex-1">
-              {/* Timeline */}
-              <div className="text-xs text-muted-foreground font-medium mb-3">
-                {p.timeline}
-              </div>
+          return (
+            <div
+              key={p.title}
+              className="bg-card border border-border rounded-xl overflow-hidden flex flex-col card-hover relative"
+            >
+              {/* Project Image */}
+              <a
+                href={imageLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative overflow-hidden block"
+                aria-label={`Open ${p.title}`}
+              >
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-44 object-cover object-[center_22%] transition-transform duration-300 hover:scale-105"
+                />
+              </a>
 
-              {p.badge && (
-                <div className="flex items-center gap-2 mb-4 text-sm text-primary font-medium">
-                  <Award size={16} />
-                  {p.badge}
+              <div className="p-8 pt-5 flex flex-col flex-1">
+                {/* Timeline */}
+                <div className="text-xs text-muted-foreground font-medium mb-3">
+                  {p.timeline}
                 </div>
-              )}
 
-              <h3 className="font-heading font-semibold text-xl mb-3">
-                {p.title}
-              </h3>
+                {p.badge && (
+                  <div className="flex items-center gap-2 mb-4 text-sm text-primary font-medium">
+                    <Award size={16} />
+                    {p.badge}
+                  </div>
+                )}
 
-              <p className="text-base text-muted-foreground leading-relaxed flex-1 mb-5">
-                {p.description}
-              </p>
+                <h3 className="font-heading font-semibold text-xl mb-3">
+                  {p.title}
+                </h3>
 
-              <div className="flex flex-wrap gap-2 mb-5">
-                {p.tech.map((t) => (
-                  <span key={t} className="tech-tag">
-                    {t}
-                  </span>
-                ))}
-              </div>
+                <p className="text-base text-muted-foreground leading-relaxed flex-1 mb-5">
+                  {p.description}
+                </p>
 
-              <div className="flex gap-3">
-                <Button
-                  variant="gold-outline"
-                  size="sm"
-                  asChild
-                  className="self-start"
-                >
-                  <a href={p.github} target="_blank" rel="noopener noreferrer">
-                    <Github size={14} /> GitHub
-                  </a>
-                </Button>
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {p.tech.map((t) => (
+                    <span key={t} className="tech-tag">
+                      {t}
+                    </span>
+                  ))}
+                </div>
 
-                {p.live && (
+                <div className="flex gap-3">
                   <Button
                     variant="gold-outline"
                     size="sm"
                     asChild
                     className="self-start"
                   >
-                    <a href={p.live} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink size={14} /> Live
+                    <a href={p.github} target="_blank" rel="noopener noreferrer">
+                      <Github size={14} /> GitHub
                     </a>
                   </Button>
-                )}
+
+                  {p.live && (
+                    <Button
+                      variant="gold-outline"
+                      size="sm"
+                      asChild
+                      className="self-start"
+                    >
+                      <a href={p.live} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink size={14} /> Live
+                      </a>
+                    </Button>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>

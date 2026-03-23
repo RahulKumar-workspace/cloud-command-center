@@ -7,6 +7,7 @@ import DocumentViewer from "./DocumentViewer";
 
 const Hero = () => {
   const { toast } = useToast();
+  const [viewerOpen, setViewerOpen] = useState(false);
 
   const handlePhone = () => {
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);

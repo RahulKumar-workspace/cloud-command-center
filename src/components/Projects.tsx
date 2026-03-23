@@ -61,13 +61,18 @@ const Projects = () => (
             className="bg-card border border-border rounded-xl overflow-hidden flex flex-col card-hover relative"
           >
             {/* Project Image */}
-            <div className="relative overflow-hidden">
+            <a
+              href={p.live || p.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative overflow-hidden block cursor-pointer"
+            >
               <img
                 src={p.image}
                 alt={p.title}
-                className="w-full h-44 object-cover object-top transition-transform duration-300 hover:scale-105"
+                className="w-full h-44 object-cover object-[center_20%] transition-transform duration-300 hover:scale-105"
               />
-            </div>
+            </a>
 
             <div className="p-8 pt-5 flex flex-col flex-1">
               {/* Timeline */}

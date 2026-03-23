@@ -68,10 +68,8 @@ const Hero = () => {
 
             {/* CTA */}
             <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.5s" }}>
-              <Button variant="gold" size="lg" asChild>
-                <a href="/resume.pdf" download="Resume - Rahul Kumar.pdf">
-                  <Download size={16} /> Download Resume
-                </a>
+              <Button variant="gold" size="lg" onClick={() => setViewerOpen(true)}>
+                <Download size={16} /> View Resume
               </Button>
               <Button
                 variant="gold-outline"

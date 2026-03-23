@@ -110,7 +110,7 @@ const Hero = () => {
           {/* Right – Image */}
           <div className="order-1 md:order-2 flex justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
             {/* Reduced max-width from 320px/420px to 240px/320px */}
-            <div className="relative w-full max-w-[260px] md:max-w-[340px] aspect-[3/5] rounded-3xl overflow-hidden border border-primary/20 bg-card shadow-2xl transition-transform hover:scale-[1.05] duration-500">
+            <div className="relative w-full max-w-[320px] md:max-w-[420px] aspect-[4/5] rounded-3xl overflow-hidden border border-primary/20 bg-card shadow-2xl transition-transform hover:scale-[1.05] duration-500">
               <img
                 src={profileImg}
                 alt="Rahul Kumar – Aspiring Cloud Engineer"

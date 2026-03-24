@@ -17,7 +17,7 @@ const items = [
     ],
     loeImage: loeAiesec,
     loeTitle: "AIESEC Letter of Experience",
-    fileHref: "/aiesec-experience.pdf",
+    fileHref: "/assets/aiesec-loe.pdf",
     fileName: "Experience Letter - Rahul Kumar.pdf",
   },
   {
@@ -30,14 +30,14 @@ const items = [
     ],
     loeImage: loeSarayu,
     loeTitle: "Sarayu Foundation Certificate",
-    fileHref: "/sarayu-certificate.pdf",
+    fileHref: "/assets/sarayu-loe.pdf",
     fileName: "Sarayu Certificate - Rahul Kumar.pdf",
   },
 ];
 
 const Extracurricular = () => {
   const openInNewTab = (item: (typeof items)[number]) => {
-    window.open(item.fileHref, "_blank");
+    window.open(item.fileHref, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -96,17 +96,15 @@ const Extracurricular = () => {
                   ))}
                 </ul>
 
-                <Button
-                  variant="gold-outline"
-                  size="sm"
-                  className="self-start"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    openInNewTab(item);
-                  }}
-                >
-                  <Eye size={14} /> View / Download
+                <Button variant="gold-outline" size="sm" className="self-start" asChild>
+                  <a
+                    href={item.fileHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(event) => event.stopPropagation()}
+                  >
+                    <Eye size={14} /> View / Download
+                  </a>
                 </Button>
               </div>
             </div>

@@ -51,7 +51,7 @@ const Extracurricular = () => {
               className="bg-card border border-border rounded-xl overflow-hidden flex flex-col card-hover cursor-pointer"
               role="button"
               tabIndex={0}
-              onClick={() => openViewer(item)}
+              onClick={() => openInNewTab(item)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();

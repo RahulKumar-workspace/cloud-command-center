@@ -36,10 +36,8 @@ const items = [
 ];
 
 const Extracurricular = () => {
-  const [activeItem, setActiveItem] = useState<(typeof items)[number] | null>(null);
-
-  const openViewer = (item: (typeof items)[number]) => {
-    setActiveItem(item);
+  const openInNewTab = (item: (typeof items)[number]) => {
+    window.open(item.fileHref, "_blank");
   };
 
   return (

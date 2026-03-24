@@ -1,8 +1,6 @@
-import { useState } from "react";
 import SectionHeading from "./SectionHeading";
 import { Users, Heart, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import DocumentViewer from "./DocumentViewer";
 
 import loeAiesec from "@/assets/loe-aiesec.png";
 import loeSarayu from "@/assets/loe-sarayu.png";
@@ -38,10 +36,8 @@ const items = [
 ];
 
 const Extracurricular = () => {
-  const [activeItem, setActiveItem] = useState<(typeof items)[number] | null>(null);
-
-  const openViewer = (item: (typeof items)[number]) => {
-    setActiveItem(item);
+  const openInNewTab = (item: (typeof items)[number]) => {
+    window.open(item.fileHref, "_blank");
   };
 
   return (
@@ -55,11 +51,11 @@ const Extracurricular = () => {
               className="bg-card border border-border rounded-xl overflow-hidden flex flex-col card-hover cursor-pointer"
               role="button"
               tabIndex={0}
-              onClick={() => openViewer(item)}
+              onClick={() => openInNewTab(item)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
-                  openViewer(item);
+                  openInNewTab(item);
                 }
               }}
             >
@@ -107,7 +103,7 @@ const Extracurricular = () => {
                   onClick={(event) => {
                     event.preventDefault();
                     event.stopPropagation();
-                    openViewer(item);
+                    openInNewTab(item);
                   }}
                 >
                   <Eye size={14} /> View / Download
@@ -118,13 +114,6 @@ const Extracurricular = () => {
         </div>
       </div>
 
-      <DocumentViewer
-        open={Boolean(activeItem)}
-        onClose={() => setActiveItem(null)}
-        src={activeItem?.fileHref || ""}
-        title={activeItem?.loeTitle || "Document"}
-        downloadName={activeItem?.fileName || "document"}
-      />
     </section>
   );
 };

@@ -1,13 +1,10 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Phone, Download, ArrowDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import profileImg from "@/assets/profile-placeholder.png";
-import DocumentViewer from "./DocumentViewer";
 
 const Hero = () => {
   const { toast } = useToast();
-  const [isResumeViewerOpen, setIsResumeViewerOpen] = useState(false);
 
   const handlePhone = () => {
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -71,7 +68,7 @@ const Hero = () => {
 
             {/* CTA */}
             <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.5s" }}>
-              <Button variant="gold" size="lg" onClick={() => setIsResumeViewerOpen(true)}>
+              <Button variant="gold" size="lg" onClick={() => window.open("/resume.pdf", "_blank")}>
                 <Download size={16} /> View Resume
               </Button>
               <Button
@@ -128,13 +125,6 @@ const Hero = () => {
         </div>
       </div>
 
-      <DocumentViewer
-        open={isResumeViewerOpen}
-        onClose={() => setIsResumeViewerOpen(false)}
-        src="/resume.pdf"
-        title="Resume - Rahul Kumar"
-        downloadName="Resume - Rahul Kumar.pdf"
-      />
     </section>
   );
 };

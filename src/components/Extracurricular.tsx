@@ -30,8 +30,8 @@ const items = [
     ],
     loeImage: loeSarayu,
     loeTitle: "Sarayu Foundation Certificate",
-    fileHref: "/sarayu-certificate.jpg",
-    fileName: "Sarayu Certificate - Rahul Kumar.jpg",
+    fileHref: "/sarayu-certificate.pdf",
+    fileName: "Sarayu Certificate - Rahul Kumar.pdf",
   },
 ];
 

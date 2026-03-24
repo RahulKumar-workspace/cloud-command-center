@@ -103,7 +103,7 @@ const Extracurricular = () => {
                   onClick={(event) => {
                     event.preventDefault();
                     event.stopPropagation();
-                    openViewer(item);
+                    openInNewTab(item);
                   }}
                 >
                   <Eye size={14} /> View / Download

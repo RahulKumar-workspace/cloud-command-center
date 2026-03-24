@@ -114,13 +114,6 @@ const Extracurricular = () => {
         </div>
       </div>
 
-      <DocumentViewer
-        open={Boolean(activeItem)}
-        onClose={() => setActiveItem(null)}
-        src={activeItem?.fileHref || ""}
-        title={activeItem?.loeTitle || "Document"}
-        downloadName={activeItem?.fileName || "document"}
-      />
     </section>
   );
 };

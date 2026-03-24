@@ -125,13 +125,6 @@ const Hero = () => {
         </div>
       </div>
 
-      <DocumentViewer
-        open={isResumeViewerOpen}
-        onClose={() => setIsResumeViewerOpen(false)}
-        src="/resume.pdf"
-        title="Resume - Rahul Kumar"
-        downloadName="Resume - Rahul Kumar.pdf"
-      />
     </section>
   );
 };

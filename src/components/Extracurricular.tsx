@@ -55,7 +55,7 @@ const Extracurricular = () => {
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
-                  openViewer(item);
+                  openInNewTab(item);
                 }
               }}
             >

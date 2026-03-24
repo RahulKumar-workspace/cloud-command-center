@@ -1,8 +1,6 @@
-import { useState } from "react";
 import SectionHeading from "./SectionHeading";
 import { Users, Heart, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import DocumentViewer from "./DocumentViewer";
 
 import loeAiesec from "@/assets/loe-aiesec.png";
 import loeSarayu from "@/assets/loe-sarayu.png";

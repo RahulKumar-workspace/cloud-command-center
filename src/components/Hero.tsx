@@ -105,8 +105,6 @@ const Hero = () => {
             </div>
           </div>
  
-
-
           {/* Right – Image */}
           <div className="order-1 md:order-2 flex justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
             {/* Reduced max-width from 320px/420px to 240px/320px */}
